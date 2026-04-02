@@ -1,0 +1,9 @@
+## ProteinQuant
+
+Protein quantification is the determination of a solution’s protein concentration and is a crucial step in many biochemical studies. For example, in the development of cancer treatments, knowing protein concentration is often required to evaluate the therapeutic effects of antibody drug conjugates and other engineered proteins. Several assays currently exist for the experimental determination of this concentration, including the Bradford & BCA assays and intrinsic UV absorbance at 280 nm (A280). Despite their widespread usage, each method requires extensive calculation. 
+
+
+To address this challenge, this package aims to create tools that enable efficient assay data analysis and visualization. A function is included to facilitate assay preparation, calculating volumes used in dilution series for Bradford, BCA, and A280 methods. Raw data from a plate reader will be input by the user as a CSV file. Other data analysis functions will be used to process the raw data, generate standard curves, and fit the appropriate linear or polynomial regression lines. Curve fitting for the A280 method will be based on Beer’s Law equation. An additional function will be used to calculate protein concentration estimates from the regression models. Final functions will be included to assist post-assay work, tracking how much protein has been used in the assay, and the remaining amounts based on user input of total starting volume.
+
+
+All core information regarding the package, including the package name, author information, GitHub link, licensing, and imported functions, is stored in the `DESCRIPTION` file. Exported and imported functions are kept in `NAMESPACE`. All functions are coded in R files stored in the `R` folder. Manuals are stored in the `man` folder, and tests are stored in the `tests` folder. 
