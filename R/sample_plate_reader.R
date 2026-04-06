@@ -14,7 +14,7 @@
 #   Test Package:              'Cmd + Shift + T'
 
 
-sample_plate_reader <- function (x){
+sample_plate_reader <- function (x, absorbance, concentration){
   plate_data  <- usethis::use_data(x)
   # data processing
 }
