@@ -13,11 +13,8 @@
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
 
-
-sample_data <- function (x){
-  data  <- usethis::use_data(x)
-  # data processing
-}
+bca_bradford_bsa_standard_curve <- read.csv("bca_bradford_bsa_standard_curve.csv")
+usethis::use_data(bca_bradford_bsa_standard_curve, overwrite = TRUE)
 
 # sample_plate_reader <- usethis::use_data(x)
 
