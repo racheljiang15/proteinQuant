@@ -1,25 +1,13 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Cmd + Shift + B'
-#   Check Package:             'Cmd + Shift + E'
-#   Test Package:              'Cmd + Shift + T'
 
-
+# load sample data files
 bca_bradford_bsa_standard_curve <- read.csv("bca_bradford_bsa_standard_curve.csv")
 usethis::use_data(bca_bradford_bsa_standard_curve, overwrite = TRUE)
 
+bradford_sample_data <- read.csv("bradford_sample_data.csv")
+usethis::use_data(bradford_sample_data, overwrite = TRUE)
 
-# sample_plate_reader <- usethis::use_data(x)
-
+UV_bsa_standard_curve <- read.csv("UV_bsa_standard_curve.csv")
+usethis::use_data(UV_bsa_standard_curve, overwrite = TRUE)
 
 
 
