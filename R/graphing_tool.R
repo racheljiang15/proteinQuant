@@ -11,7 +11,6 @@ graphing_tool <- function(data, concentration, absorbance) {
          aes(x = avg_absorbance,
              y = {{ concentration }})) +
     geom_point() +
-    # Fix 1: Use stat_smooth with poly() formula for polynomial regression
     geom_smooth(method = "lm", formula = y ~ poly(x, 2), se = FALSE) +
     theme_bw() +
     labs(x = "Average Absorbance",
