@@ -14,15 +14,9 @@
 #   Test Package:              'Cmd + Shift + T'
 
 
-<<<<<<< HEAD:R/sample_plate_reader.R
-sample_plate_reader <- function (x, absorbance, concentration){
-  plate_data  <- usethis::use_data(x)
-=======
-sample_data <- function (x){
-  data  <- usethis::use_data(x)
->>>>>>> c01dc3f5e0a4bf2f5dc6498ff6b3392845c2111c:R/sample_data.R
-  # data processing
-}
+bca_bradford_bsa_standard_curve <- read.csv("bca_bradford_bsa_standard_curve.csv")
+usethis::use_data(bca_bradford_bsa_standard_curve, overwrite = TRUE)
+
 
 # sample_plate_reader <- usethis::use_data(x)
 
