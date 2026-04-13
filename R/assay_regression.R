@@ -31,7 +31,7 @@ assay_regression <- function(data, concentration, absorbance, stats = FALSE){
   return(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data))
 }
 
-sample_data <- bca_bradford_bsa_standard_curve
+#sample_data <- bca_bradford_bsa_standard_curve
 # assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
 
 

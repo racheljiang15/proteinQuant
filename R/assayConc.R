@@ -22,14 +22,14 @@ assayConc <- function(data, absorbance, regression, printWell = TRUE) {
 }
 
 # create sample data for testing
-sample_data <- bca_bradford_bsa_standard_curve
-bradford_sample <- bradford_sample_data
+#sample_data <- bca_bradford_bsa_standard_curve
+#bradford_sample <- bradford_sample_data
 
 # make regression, returned as a list
-sample_bradf_regression <- assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
+#sample_bradf_regression <- assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
 
 # test function NOTE: add units
-assayConc(data = bradford_sample, absorbance = Absorbance, regression = sample_bradf_regression)
+#assayConc(data = bradford_sample, absorbance = Absorbance, regression = sample_bradf_regression)
 
 
 

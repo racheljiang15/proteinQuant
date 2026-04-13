@@ -18,12 +18,12 @@ assayGraph <- function(data, absorbance, concentration){
 
 
 # make regression, returned as a list
-sample_bradf_regression <- assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
+#sample_bradf_regression <- assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
 # calculate concentration, returned as a list with absorbance and concentration
-sample_bradf <- assayConc(data = bradford_sample, absorbance = Absorbance, regression = sample_bradf_regression)
+#sample_bradf <- assayConc(data = bradford_sample, absorbance = Absorbance, regression = sample_bradf_regression)
 
 # testing assayGraph
-assayGraph(data = sample_bradf, absorbance = Absorbance, concentration = Concentration)
+#assayGraph(data = sample_bradf, absorbance = Absorbance, concentration = Concentration)
 
 
 
