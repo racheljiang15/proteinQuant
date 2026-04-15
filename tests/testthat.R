@@ -10,4 +10,3 @@ library(testthat)
 library(proteinQuant)
 
 test_check("proteinQuant")
-
