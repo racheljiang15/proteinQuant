@@ -1,3 +1,13 @@
+#' Standard Curve Graphing
+#'
+#' @description A function that returns a graph of the polynomial regression fitting for BCA and Bradford standard curves. 
+#' @return A plot showing the data points of the standard curve, as well as the fitted polynomial regression model.
+#' @export
+#' @import tidyverse
+#' @examples
+#' sample_data <- bca_bradford_bsa_standard_curve
+#' graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
+#'
 
 # graphing tool for graphing standard curve
 graphing_tool <- function(data, concentration, absorbance) {
@@ -18,4 +28,4 @@ graphing_tool <- function(data, concentration, absorbance) {
 }
 
 #sample_data <- bca_bradford_bsa_standard_curve
-# graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
+#graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
