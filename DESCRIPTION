@@ -2,8 +2,10 @@ Package: proteinQuant
 Type: Package
 Title: Processes Protein Quantification Data from Assays
 Version: 0.1.0
-Author: Ashley Cheng and Rachel Jiang
-Maintainer: aycheng@smith.edu and rjiang@smith.edu
+Authors@R: c(
+  person("Ashley", "Cheng", , "aycheng@smith.edu", role = c("cre")),
+  person("Rachel", "Jiang", , "rjiang@smith.edu", role = c("aut"))
+  )
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
@@ -18,9 +20,5 @@ Suggests:
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
-<<<<<<< HEAD
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-=======
-Config/testthat/edition: 3
->>>>>>> 0cddc9145b9d8cbc18b83fb71c42b8eb2cce7466

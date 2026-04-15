@@ -3,7 +3,7 @@
 #' @description A function that returns the polynomial regression equations for BCA/ Bradford standard curves.
 #' @return A regression equation with protein concentration as y and absorbance as x.
 #' @export
-#' @import 
+#' @import tidyverse
 #' @examples
 #' sample_data <- bca_bradford_bsa_standard_curve
 #' assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
