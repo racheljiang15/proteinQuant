@@ -1,0 +1,57 @@
+---
+title: "proteinQuant Package Tutorial"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r setup}
+library(proteinQuant)
+```
+
+
+## Introduction
+
+The `proteinQuant` package provides a facile method to process and calculate assay results from **BCA assay**, **Bradford assay**, and **UV standard curve** protein quantification methods. The package features functions that allows users to quickly go through necessary calculations and obtain useful graphics when processing assay/UV-vis data. Additionally, the package features sample data sets comprised of real experimental data collected through the listed methods. Through that this package aims to assist researchers who have to quantify proteins through these methods on a regular basis. 
+
+
+### Typcal Workflow
+
+
+
+### Loading the Data
+
+
+
+
+### Working across Assays
+
+
+
+### Calculating Standard Curves
+
+
+
+
+### Graphing
+
+
+
+
+
+### Calculating Concentrations
+
+
+
+
+## Conclusion
