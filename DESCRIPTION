@@ -3,7 +3,7 @@ Type: Package
 Title: Processes Protein Quantification Data from Assays
 Version: 0.1.0
 Author: Ashley Cheng and Rachel Jiang
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: aycheng@smith.edu and rjiang@smith.edu
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
@@ -11,3 +11,12 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/racheljiang15/proteinQuant
 BugReports: https://github.com/racheljiang15/proteinQuant/issues
+<<<<<<< HEAD
+=======
+Depends: 
+    R (>= 3.5)
+RoxygenNote: 7.3.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+>>>>>>> f6064f2e8da169055d417c7be0bac87edc44e3db
