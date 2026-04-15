@@ -11,12 +11,9 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/racheljiang15/proteinQuant
 BugReports: https://github.com/racheljiang15/proteinQuant/issues
-<<<<<<< HEAD
-=======
 Depends: 
     R (>= 3.5)
 RoxygenNote: 7.3.3
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
->>>>>>> f6064f2e8da169055d417c7be0bac87edc44e3db
