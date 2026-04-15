@@ -18,5 +18,9 @@ Suggests:
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
+<<<<<<< HEAD
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+=======
+Config/testthat/edition: 3
+>>>>>>> 0cddc9145b9d8cbc18b83fb71c42b8eb2cce7466
