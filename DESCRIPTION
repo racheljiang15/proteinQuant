@@ -3,7 +3,7 @@ Type: Package
 Title: Processes Protein Quantification Data from Assays
 Version: 0.1.0
 Author: Ashley Cheng and Rachel Jiang
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: aycheng@smith.edu and rjiang@smith.edu
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
