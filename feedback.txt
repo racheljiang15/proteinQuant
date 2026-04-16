@@ -1,0 +1,33 @@
+
+
+Hi Rachel and Ashley,
+
+I've made a few tweaks to your files and you can see those updates when you consider the changes in the pull requests themselves. Regarding your error, this is a result of how your data had been implemented into your namespace. The following fixes have been applied to straighten things out:
+
+- Add quotations to all data frames referenced in your .R files for your data frames
+- No @exports are needed for those specific files, so the @exports tags are removed
+- Rename bradfordSampleData.R to bradford_sample_data.R
+
+This resolved that error! However, you now have the following error, which is:
+
+Namespace dependency missing from DESCRIPTION Imports/Depends entries: 'tidyverse'
+  
+  See section 'The DESCRIPTION file' in the 'Writing R Extensions'
+  manual.
+  
+For this error, you will need to determine which package you want to use specifically from tidyverse. You will not be able to import in the whole meta-package. If you do using `usethis::use_package("tidyverse")`, you will get the following:
+
+✖ tidyverse is a meta-package and it is rarely a good idea to depend on
+  it.
+☐ Please determine the specific underlying package(s) that provide the
+  function(s) you need and depend on that instead.
+ℹ For data analysis projects that use a package structure but do not implement
+  a formal R package, adding tidyverse to Depends is a reasonable compromise.
+☐ Call `use_package("tidyverse", type = "depends")` to achieve this.
+
+That is it on the working front. As far as how the internal workings of the package look, you have the main framework down and have made substantial progress on the code, documentation, and testing. A few things to point out:
+
+- You will need to update your examples in the R files to use the proper datasets. Also, you should not add the first line that loads in the .csv file --- this can be mentioned in the vignette, but not so much in the help file. 
+- You'll want to remove the .csv files that exist in the main directory (since this won't be in the package itself).
+
+I think you all are in a good place at this checkpoint. For the next checkpoint, remedy the comments above and have your examples working so that it reflects mostly what you anticipate from each of the functions.
