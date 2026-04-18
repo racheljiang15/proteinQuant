@@ -3,7 +3,8 @@
 #' @description A function that returns a graph of the polynomial regression fitting for BCA and Bradford standard curves. 
 #' @return A plot showing the data points of the standard curve, as well as the fitted polynomial regression model.
 #' @export
-#' @import tidyverse
+#' @import ggplot2
+#' @import dplyr
 #' @examples
 #' sample_data <- bca_bradford_bsa_standard_curve
 #' graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
@@ -11,7 +12,7 @@
 
 # graphing tool for graphing standard curve
 graphing_tool <- function(data, concentration, absorbance) {
-  library(tidyverse)
+  library(ggplot2)
   
   avg_data <- data |>
     group_by({{ concentration }}) |>
