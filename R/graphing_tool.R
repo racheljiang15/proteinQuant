@@ -6,6 +6,7 @@
 #' @import ggplot2
 #' @import dplyr
 #' @examples
+#' data(bca_bradford_bsa_standard_curve)
 #' sample_data <- bca_bradford_bsa_standard_curve
 #' graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
 #'
