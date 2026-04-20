@@ -12,7 +12,6 @@
 
 # added argument `stats`, which is `FALSE` by default. Allows user to choose to see additional statistics by setting stats` to `TRUE`
 assay_regression <- function(data, concentration, absorbance, stats = FALSE){
-  library(dplyr)
   avg_data <- data |>
     group_by({{ concentration }}) |>
     reframe(avg_absorbance = mean({{ absorbance }}))
@@ -27,7 +26,7 @@ assay_regression <- function(data, concentration, absorbance, stats = FALSE){
     conc, " = ",
     round(coeffs[1], 4), " + ",
     round(coeffs[2], 4), "x + ",
-    round(coeffs[3], 4), "x²"
+    round(coeffs[3], 4), "x^2"
   )
   
   cat("Equation:", equation, "\n\n")
