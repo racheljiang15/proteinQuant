@@ -5,8 +5,10 @@
 #' @export
 #' @import ggplot2
 #' @examples
-#' sample_bradf <- assayConc(data = bradford_sample, absorbance = Absorbance, regression = sample_bradf_regression)
-#'assayGraph(data = sample_bradf, absorbance = Absorbance, concentration = Concentration)
+#' \dontrun{
+#' sample_bradf <- assayConc(data = bradford_sample_data, absorbance = Absorbance, regression = sample_bradf_regression)
+#' assayGraph(data = sample_bradf, absorbance = Absorbance, concentration = Concentration)
+#' }
 #'
 
 assayGraph <- function(data, absorbance, concentration){
