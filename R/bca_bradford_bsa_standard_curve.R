@@ -6,8 +6,8 @@
 #' @examples
 #' bca_bradford_bsa_standard_curve
 #'
-#' @name standard_curve_BCABradford
-
-"bca_bradford_bsa_standard_curve"
+#' @name bca_bradford_bsa_standard_curve
+NULL
+#"bca_bradford_bsa_standard_curve"
 #bca_bradford_bsa_standard_curve <- read.csv("bca_bradford_bsa_standard_curve.csv")
 #usethis::use_data(bca_bradford_bsa_standard_curve, overwrite = TRUE)

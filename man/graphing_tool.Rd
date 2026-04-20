@@ -13,6 +13,7 @@ A plot showing the data points of the standard curve, as well as the fitted poly
 A function that returns a graph of the polynomial regression fitting for BCA and Bradford standard curves.
 }
 \examples{
+data(bca_bradford_bsa_standard_curve)
 sample_data <- bca_bradford_bsa_standard_curve
 graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
 
