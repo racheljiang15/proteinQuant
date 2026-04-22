@@ -7,13 +7,19 @@
 assayConc(data, absorbance, regression, printWell = TRUE)
 }
 \arguments{
-\item{data}{*add description}
+\item{data}{List containing absorbance values.}
+
+\item{absorbance}{Name of column containing absorbance values in data.}
+
+\item{regression}{List of regression modeling coefficients.}
+
+\item{printWell}{True or False.}
 }
 \value{
 A data frame with the concentrations of each sample.
 }
 \description{
-A function that returns the concentrations of unknown protein samples, based on absorbance data.
+A function that returns the concentrations of unknown protein samples, based on absorbance data, as a data frame.
 }
 \examples{
 sample_bradf_regression <- assay_regression(data = bca_bradford_bsa_standard_curve, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)

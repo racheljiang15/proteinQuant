@@ -1,9 +1,12 @@
 #' Concentrations for Unknown Protein Samples
 #'
-#' @description A function that returns the concentrations of unknown protein samples, based on absorbance data.
+#' @description A function that returns the concentrations of unknown protein samples, based on absorbance data, as a data frame.
 #' @return A data frame with the concentrations of each sample.
 #' @export
-#' @param data *add description
+#' @param data List containing absorbance values.
+#' @param absorbance Name of column containing absorbance values in data.
+#' @param regression List of regression modeling coefficients.
+#' @param printWell True or False.
 #' @examples
 #' sample_bradf_regression <- assay_regression(data = bca_bradford_bsa_standard_curve, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
 #' assayConc(data = bradford_sample_data, absorbance = Absorbance, regression = sample_bradf_regression)
