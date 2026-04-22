@@ -15,14 +15,31 @@
 #'
 
 assayGraph <- function(data, absorbance, concentration){
+  # add warning and error messages
+  if (typeof(data) != "list"){
+    stop("Argument `data` must be a list")
+  }
   
+  if (length(data$concentration) == 1){
+    warning("Should input more than 1 concentration value.")
+  }
+  
+  if (length(data$absorbance) == 1){
+    warning("Should input more than 1 absorbance value.")
+  }
+  
+  if (length(data$concentration) != length(data$absorbance)){
+    stop("Each concentration must have a corresponding absorbance")
+  }
+  
+  # use ggplot to generate a graph for the standard curve
   ggplot(data = data,
          aes(x = {{absorbance}},
              y = {{concentration}})) +
     geom_point() +
     theme_bw() +
     labs(x = "Absorbance",
-         y = "Concentration (ug/mL)")
+         y = "Concentration (ug/mL)") # change axis titles
 }
 
 
