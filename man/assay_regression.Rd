@@ -6,6 +6,15 @@
 \usage{
 assay_regression(data, concentration, absorbance, stats = FALSE)
 }
+\arguments{
+\item{data}{Dataframe containing absorbance and concentration values.}
+
+\item{concentration}{Name of column containing concentration values in data.}
+
+\item{absorbance}{Name of column containing absorbance values in data.}
+
+\item{stats}{True or False.}
+}
 \value{
 A regression equation with protein concentration as y and absorbance as x.
 }

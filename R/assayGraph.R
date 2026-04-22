@@ -4,6 +4,9 @@
 #' @return A plot showing the data points of the standard curve, as well as the fitted Beer's Law equation.
 #' @export
 #' @import ggplot2
+#' @param data Dataframe containing absorbance and concentration values.
+#' @param absorbance Name of column containing absorbance values in data.
+#' @param concentration Name of column containing concentration values in data.
 #' @examples
 #' \dontrun{
 #' sample_bradf <- assayConc(data = bradford_sample_data, absorbance = Absorbance, regression = sample_bradf_regression)

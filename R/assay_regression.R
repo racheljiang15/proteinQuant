@@ -3,6 +3,10 @@
 #' @description A function that returns the polynomial regression equations for BCA/ Bradford standard curves.
 #' @return A regression equation with protein concentration as y and absorbance as x.
 #' @export
+#' @param data Dataframe containing absorbance and concentration values.
+#' @param concentration Name of column containing concentration values in data.
+#' @param absorbance Name of column containing absorbance values in data.
+#' @param stats True or False.
 #' @import dplyr
 #' @examples
 #' data(bca_bradford_bsa_standard_curve)

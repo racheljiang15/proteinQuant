@@ -6,6 +6,13 @@
 \usage{
 assayGraph(data, absorbance, concentration)
 }
+\arguments{
+\item{data}{Dataframe containing absorbance and concentration values.}
+
+\item{absorbance}{Name of column containing absorbance values in data.}
+
+\item{concentration}{Name of column containing concentration values in data.}
+}
 \value{
 A plot showing the data points of the standard curve, as well as the fitted Beer's Law equation.
 }
