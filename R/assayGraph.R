@@ -12,7 +12,6 @@
 #'
 
 assayGraph <- function(data, absorbance, concentration){
-  library(ggplot2)
   
   ggplot(data = data,
          aes(x = {{absorbance}},

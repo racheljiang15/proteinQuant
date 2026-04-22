@@ -13,7 +13,6 @@
 
 # graphing tool for graphing standard curve
 graphing_tool <- function(data, concentration, absorbance) {
-  library(ggplot2)
   
   avg_data <- data |>
     group_by({{ concentration }}) |>
