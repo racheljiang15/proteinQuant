@@ -13,6 +13,21 @@
 
 # graphing tool for graphing standard curve
 graphing_tool <- function(data, concentration, absorbance) {
+  if (typeof(data) != "list"){
+    stop("Argument `data` must be a list")
+  }
+  
+  if (length(data$concentration) == 1){
+    warning("Should input more than 1 concentration value.")
+  }
+  
+  if (length(data$absorbance) == 1){
+    warning("Should input more than 1 absorbance value.")
+  }
+  
+  if (length(data$concentration) != length(data$absorbance)){
+    stop("Each concentration must have a corresponding absorbance")
+  }
   
   avg_data <- data |>
     group_by({{ concentration }}) |>

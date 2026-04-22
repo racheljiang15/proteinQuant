@@ -11,6 +11,22 @@
 
 # returns a list with the calculated concentrations
 assayConc <- function(data, absorbance, regression, printWell = TRUE) {
+  if (typeof(data) != "list"){
+    stop("Argument `data` must be a list")
+  }
+  
+  if (length(data$concentration) == 1){
+    warning("Should input more than 1 concentration value.")
+  }
+  
+  if (length(data$absorbance) == 1){
+    warning("Should input more than 1 absorbance value.")
+  }
+  
+  if (length(data$concentration) != length(data$absorbance)){
+    stop("Each concentration must have a corresponding absorbance")
+  }
+  
   abs_values <- data |> pull({{ absorbance }})
   conc <- vector("numeric", length(abs_values))
   

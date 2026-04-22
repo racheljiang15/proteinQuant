@@ -12,6 +12,22 @@
 
 # added argument `stats`, which is `FALSE` by default. Allows user to choose to see additional statistics by setting stats` to `TRUE`
 assay_regression <- function(data, concentration, absorbance, stats = FALSE){
+  if (typeof(data) != "list"){
+    stop("Argument `data` must be a list")
+  }
+  
+  if (length(data$concentration) == 1){
+    warning("Should input more than 1 concentration value.")
+  }
+  
+  if (length(data$absorbance) == 1){
+    warning("Should input more than 1 absorbance value.")
+  }
+  
+  if (length(data$concentration) != length(data$absorbance)){
+    stop("Each concentration must have a corresponding absorbance")
+  }
+  
   avg_data <- data |>
     group_by({{ concentration }}) |>
     reframe(avg_absorbance = mean({{ absorbance }}))
@@ -43,7 +59,8 @@ assay_regression <- function(data, concentration, absorbance, stats = FALSE){
 }
 
 #sample_data <- bca_bradford_bsa_standard_curve
-#assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
+#assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)  
 
+typeof(sample_data)
 
 
