@@ -15,6 +15,7 @@
 #'
 
 assayGraph <- function(data, absorbance, concentration){
+  # add warning and error messages
   if (typeof(data) != "list"){
     stop("Argument `data` must be a list")
   }
@@ -31,13 +32,14 @@ assayGraph <- function(data, absorbance, concentration){
     stop("Each concentration must have a corresponding absorbance")
   }
   
+  # use ggplot to generate a graph for the standard curve
   ggplot(data = data,
          aes(x = {{absorbance}},
              y = {{concentration}})) +
     geom_point() +
     theme_bw() +
     labs(x = "Absorbance",
-         y = "Concentration (ug/mL)")
+         y = "Concentration (ug/mL)") # change axis titles
 }
 
 
