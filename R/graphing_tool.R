@@ -5,6 +5,9 @@
 #' @export
 #' @import ggplot2
 #' @import dplyr
+#' @param data Dataframe containing absorbance and concentration values.
+#' @param concentration Name of column containing concentration values in data.
+#' @param absorbance Name of column containing absorbance values in data.
 #' @examples
 #' data(bca_bradford_bsa_standard_curve)
 #' sample_data <- bca_bradford_bsa_standard_curve

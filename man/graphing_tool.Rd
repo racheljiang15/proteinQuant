@@ -6,6 +6,13 @@
 \usage{
 graphing_tool(data, concentration, absorbance)
 }
+\arguments{
+\item{data}{Dataframe containing absorbance and concentration values.}
+
+\item{concentration}{Name of column containing concentration values in data.}
+
+\item{absorbance}{Name of column containing absorbance values in data.}
+}
 \value{
 A plot showing the data points of the standard curve, as well as the fitted polynomial regression model.
 }
