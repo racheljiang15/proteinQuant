@@ -6,6 +6,13 @@
 \usage{
 assayGraph(data, absorbance, concentration)
 }
+\arguments{
+\item{data}{Dataframe containing absorbance and concentration values.}
+
+\item{absorbance}{Name of column containing absorbance values in data.}
+
+\item{concentration}{Name of column containing concentration values in data.}
+}
 \value{
 A plot showing the data points of the standard curve, as well as the fitted Beer's Law equation.
 }
@@ -13,7 +20,9 @@ A plot showing the data points of the standard curve, as well as the fitted Beer
 A function that returns a graph of the Beer's Law equation for UV280 standard curves.
 }
 \examples{
-sample_bradf <- assayConc(data = bradford_sample, absorbance = Absorbance, regression = sample_bradf_regression)
+\dontrun{
+sample_bradf <- assayConc(data = bradford_sample_data, absorbance = Absorbance, regression = sample_bradf_regression)
 assayGraph(data = sample_bradf, absorbance = Absorbance, concentration = Concentration)
+}
 
 }
