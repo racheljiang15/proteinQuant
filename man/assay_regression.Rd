@@ -4,7 +4,7 @@
 \alias{assay_regression}
 \title{Standard Curve Polynomial Regression Fitting}
 \usage{
-assay_regression(data, concentration, absorbance, stats = FALSE)
+assay_regression(data, concentration, absorbance, stats = TRUE)
 }
 \arguments{
 \item{data}{Dataframe containing absorbance and concentration values.}
@@ -16,7 +16,7 @@ assay_regression(data, concentration, absorbance, stats = FALSE)
 \item{stats}{True or False.}
 }
 \value{
-A regression equation with protein concentration as y and absorbance as x.
+Unless stats is set to FALSE, will return a regression equation with protein concentration as y and absorbance as x.
 }
 \description{
 A function that returns the polynomial regression equations for BCA/ Bradford standard curves.

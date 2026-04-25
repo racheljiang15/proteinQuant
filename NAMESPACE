@@ -2,6 +2,7 @@
 
 export(UV280_regression)
 export(UV_graphing_tool)
+export(assayAnalysis)
 export(assayConc)
 export(assayGraph)
 export(assay_graphing_tool)
