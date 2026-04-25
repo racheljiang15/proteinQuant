@@ -1,6 +1,6 @@
-#' Standard Curve Polynomial Regression Fitting
+#' Standard Curve Linear Regression Fitting
 #'
-#' @description A function that returns the polynomial regression equations for BCA/ Bradford standard curves.
+#' @description A function that returns the linear regression equations for UV 280 standard curves.
 #' @return A regression equation with protein concentration as y and absorbance as x.
 #' @export
 #' @param data Dataframe containing absorbance and concentration values.
@@ -9,13 +9,13 @@
 #' @param stats True or False.
 #' @import dplyr
 #' @examples
-#' data(bca_bradford_bsa_standard_curve)
-#' sample_data <- bca_bradford_bsa_standard_curve
-#' assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
+#' data(UV_bsa_standard_curve)
+#' sample_data <- UV_bsa_standard_curve
+#' UV280_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance, stats = TRUE)
 #'
 
 # added argument `stats`, which is `FALSE` by default. Allows user to choose to see additional statistics by setting stats` to `TRUE`
-assay_regression <- function(data, concentration, absorbance, stats = FALSE){
+UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   # warning and error messages
   if (typeof(data) != "list"){
     stop("Argument `data` must be a list")
@@ -40,18 +40,16 @@ assay_regression <- function(data, concentration, absorbance, stats = FALSE){
   
   # set up the formula to be used inside lm
   conc <- deparse(substitute(concentration))
-  formula <- as.formula(paste(conc, "~ poly(avg_absorbance, 2)"))
   
   # generate regression equation based on the data set
-  regression <- lm(formula, data = avg_data)
+  regression <- lm(as.formula(paste("avg_absorbance ~", conc)), data = avg_data)
   coeffs <- coef(summary(regression))
   
   # create the equation printout 
   equation <- paste0(
-    conc, " = ",
+    "avg_absorbance = ",
     round(coeffs[1], 4), " + ",
-    round(coeffs[2], 4), "x + ",
-    round(coeffs[3], 4), "x^2"
+    round(coeffs[2], 4), "x"
   )
   
   # printing equation
@@ -70,6 +68,7 @@ assay_regression <- function(data, concentration, absorbance, stats = FALSE){
   # return values as a list to be used in future calculations
   return(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data))
 }
+
 
 
 
