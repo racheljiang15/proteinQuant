@@ -1,7 +1,7 @@
 #' Standard Curve Polynomial Regression Fitting
 #'
 #' @description A function that returns the polynomial regression equations for BCA/ Bradford standard curves.
-#' @return A regression equation with protein concentration as y and absorbance as x.
+#' @return Unless stats is set to FALSE, will return a regression equation with protein concentration as y and absorbance as x.
 #' @export
 #' @param data Dataframe containing absorbance and concentration values.
 #' @param concentration Name of column containing concentration values in data.
@@ -14,8 +14,8 @@
 #' assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
 #'
 
-# added argument `stats`, which is `FALSE` by default. Allows user to choose to see additional statistics by setting stats` to `TRUE`
-assay_regression <- function(data, concentration, absorbance, stats = FALSE){
+# added argument `stats`, which is `TRUE` by default. Allows user to choose to not print regression equation by setting stats` to `FALSE`
+assay_regression <- function(data, concentration, absorbance, stats = TRUE){
   # warning and error messages
   if (typeof(data) != "list"){
     stop("Argument `data` must be a list")
@@ -54,12 +54,9 @@ assay_regression <- function(data, concentration, absorbance, stats = FALSE){
     round(coeffs[3], 4), "x^2"
   )
   
-  # printing equation
-  cat("Equation:", equation, "\n\n")
-  
-  # if user selected stats = TRUE, program will enter this if statement
+  # if user selected stats = TRUE, program will enter this if statement and print the equation
   if (stats == TRUE){
-    print(coeffs)
+    cat("Equation:", equation, "\n\n")
   }
   
   # round coefficients for output
@@ -68,10 +65,8 @@ assay_regression <- function(data, concentration, absorbance, stats = FALSE){
   secondary<- round(coeffs[3], 4)
   
   # return values as a list to be used in future calculations
-  return(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data))
+  return(invisible(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data)))
 }
-
-
 
 
 
