@@ -11,11 +11,11 @@
 #' @examples
 #' data(bca_bradford_bsa_standard_curve)
 #' sample_data <- bca_bradford_bsa_standard_curve
-#' graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
+#' assay_graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
 #'
 
 # graphing tool for graphing standard curve
-graphing_tool <- function(data, concentration, absorbance) {
+assay_graphing_tool <- function(data, concentration, absorbance) {
   # warning and error messages
   if (typeof(data) != "list"){
     stop("Argument `data` must be a list")
