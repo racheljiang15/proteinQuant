@@ -33,11 +33,6 @@ Sample data sets included in the package:
 You can install `proteinQuant` from GitHub with 
 
 ```{r}
-#| eval: true
-#| echo: true
-#| message: false
-#| warning: false
-
 # install.packages("pak")
 pak::pak("racheljiang15/proteinQuant")
 ```
@@ -48,11 +43,6 @@ pak::pak("racheljiang15/proteinQuant")
 Below is an example setup of using the `assay_regression` function to generate a regression line for the inputted data set. 
 
 ```{r}
-#| eval: true
-#| echo: true
-#| message: false
-#| warning: false
-
 # import package
 library(proteinQuant)
 
