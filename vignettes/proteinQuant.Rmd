@@ -22,29 +22,44 @@ library(proteinQuant)
 
 ## Introduction
 
-The `proteinQuant` package provides a facile method to process and calculate assay results from **BCA assay**, **Bradford assay**, and **UV standard curve** protein quantification methods. The package features functions that allows users to quickly go through necessary calculations and obtain useful graphics when processing assay/UV-vis data. Additionally, the package features sample data sets comprised of real experimental data collected through the listed methods. Through that this package aims to assist researchers who have to quantify proteins through these methods on a regular basis. 
+The `proteinQuant` package provides a facile method to process and calculate assay results from **BCA assay**, **Bradford assay**, and **UV standard curve** protein quantification methods. The package features functions that allow users to quickly go through necessary calculations and obtain useful graphics when processing assay/UV-vis data. Additionally, the package features sample data sets comprised of real experimental data collected through the listed methods. Through that, this package aims to assist researchers who have to quantify proteins through these methods regularly. 
 
 
-### Typcal Workflow
+### Typical Workflow
 
+To begin, users can input the data for their standard curve into the appropriate standard curve function, either `assay_regression` or `UV280_regression`, to obtain a standard curve for concentration calculations. The user can then input the resulting regression equation to `AssayConc` in addition to the absorbance data for their protein sample(s) to quantify protein concentration in their samples. The regression line can also be graphed out with the corresponding standard curve graphing function, `asay_graphing_tool` or `UV_graphing_tool`. 
+
+Alternatively, the user can use the ultimate function `assayAnalysis`, which calls all the functions in one run. This function yields a shorter output but still incorporates all the 
 
 
 ### Loading the Data
 
-
+To load in data, 
 
 
 ### Working across Assays
 
+The `proteinQuant` includes bsorbance data experimentally collected from the UV 280 method or the BCA and Bradford assays. Data was collected during BCH 253 Biochemistry I lab.
 
+Sample data can be loaded directly after loading the package.
+
+```{r setup}
+data("bca_bradford_bsa_standard_curve")
+data("bca_bradford_standard_curve_data")
+data("BCA_sample_data")
+data("bradford_sample_data")
+data("UV_bsa_standard_curve")
+data("UV_sample_data")
+```
 
 ### Calculating Standard Curves
 
 
 
+#### Assay Results
+
 
 ### Graphing
-
 
 
 
@@ -55,3 +70,4 @@ The `proteinQuant` package provides a facile method to process and calculate ass
 
 
 ## Conclusion
+
