@@ -39,16 +39,26 @@ assay_regression <- function(data, concentration, absorbance, stats = TRUE){
     reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
   
   # set up the formula to be used inside lm
-  conc <- deparse(substitute(concentration))
-  formula <- as.formula(paste(conc, "~ poly(avg_absorbance, 2)"))
+  #conc <- deparse(substitute(concentration))
+  #formula <- as.formula(paste(conc, "~ poly(avg_absorbance, 2)"))
   
   # generate regression equation based on the data set
+  #regression <- lm(formula, data = avg_data)
+  #regression <- lm({{ concentration }} ~ poly(avg_absorbance, 2), data = avg_data)
+  
+  conc_name <- rlang::as_name(rlang::ensym(concentration))
+  
+  formula <- reformulate(
+    termlabels = "poly(avg_absorbance, 2)",
+    response = conc_name
+  )
+  
   regression <- lm(formula, data = avg_data)
   coeffs <- coef(summary(regression))
   
   # create the equation printout 
   equation <- paste0(
-    conc, " = ",
+    conc_name, " = ",
     round(coeffs[1], 4), " + ",
     round(coeffs[2], 4), "x + ",
     round(coeffs[3], 4), "x^2"

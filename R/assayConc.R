@@ -38,7 +38,7 @@ assayConc <- function(data, absorbance, regression, printWell = TRUE) {
   
   # go through all absorbance values and calculate corresponding concentration, then store the value to the conc list
   for (i in seq_along(abs_values)){
-    conc[[i]] <- regression$intercept + regression$primary * abs_values[i] + regression$secondary * abs_values[i]^2
+    conc[[i]] <- regression$intercept + regression$primary * abs_values[i] + ifelse(is.na(regression$secondary), 0, regression$secondary * abs_values[i]^2)
   }
   
   # concatenate the calculated concentration values with the original absorbance values

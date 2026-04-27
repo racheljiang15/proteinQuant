@@ -39,10 +39,19 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
     reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
   
   # set up the formula to be used inside lm
-  conc <- deparse(substitute(concentration))
+  #conc <- deparse(substitute(concentration))
   
   # generate regression equation based on the data set
-  regression <- lm(as.formula(paste("avg_absorbance ~", conc)), data = avg_data)
+  #regression <- lm(as.formula(paste("avg_absorbance ~", conc)), data = avg_data)
+  #regression <- lm(avg_absorbance ~ {{ concentration }},data = avg_data)
+  conc_name <- rlang::as_name(rlang::ensym(concentration))
+  
+  formula <- reformulate(
+    termlabels = conc_name,
+    response = "avg_absorbance"
+  )
+  
+  regression <- lm(formula, data = avg_data)
   coeffs <- coef(summary(regression))
   
   # create the equation printout 
@@ -63,7 +72,7 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   # round coefficients for output
   intercept <- round(coeffs[1], 4)
   primary <- round(coeffs[2], 4)
-  secondary<- round(coeffs[3], 4)
+  secondary<- NA
   
   # return values as a list to be used in future calculations
   return(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data))
