@@ -43,7 +43,8 @@ The `proteinQuant` includes bsorbance data experimentally collected from the UV 
 
 Sample data can be loaded directly after loading the package.
 
-```{r setup}
+```{r}
+# load individual dataset for each quantification
 data("bca_bradford_bsa_standard_curve")
 data("bca_bradford_standard_curve_data")
 data("BCA_sample_data")
@@ -53,8 +54,6 @@ data("UV_sample_data")
 ```
 
 ### Calculating Standard Curves
-
-
 
 #### Assay Results
 
