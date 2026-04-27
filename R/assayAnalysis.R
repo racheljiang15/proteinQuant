@@ -16,8 +16,8 @@
 #' @param stats True or False.
 #' @param printWell True or False.
 #' @examples
-#' \dontrun{
-#' }
+#' assayAnalysis(assay = "Bradford",stdcurve = bca_bradford_bsa_standard_curve,stdconc = Concentration.ug.mL.,stdabs = Bradford_Absorbance,data = bradford_sample_data, absorbance = Absorbance, stats = TRUE)
+#' 
 
 assayAnalysis <- function(assay, stdcurve, stdconc, stdabs, data, concentration = NULL, absorbance, stats = FALSE, printWell = TRUE){
   assay <- tolower(assay)

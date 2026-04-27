@@ -1,31 +1,34 @@
-## ProteinQuant
+# ProteinQuant
 
-Protein quantification is the determination of a solution’s protein concentration and is a crucial step in many biochemical studies. For example, in the development of cancer treatments, knowing protein concentration is often required to evaluate the therapeutic effects of antibody drug conjugates and other engineered proteins. Several assays currently exist for the experimental determination of this concentration, including the Bradford & BCA assays and intrinsic UV absorbance at 280 nm (A280). Despite their widespread usage, each method requires extensive calculation. 
+Protein quantification is the determination of a solution’s protein concentration and is a crucial step in many biochemical studies. For example, in the development of cancer treatments, knowing protein concentration is often required to evaluate the therapeutic effects of antibody drug conjugates and other engineered proteins. Several assays currently exist for the experimental determination of this concentration, including the Bradford & BCA assays and intrinsic UV absorbance at 280 nm (A280). Despite their widespread usage, each method requires extensive calculation.
 
-To address this challenge, this package aims to create tools that enable efficient assay data analysis and visualization. A function is included to facilitate assay preparation, calculating volumes used in dilution series for Bradford, BCA, and A280 methods. Raw data from a plate reader will be input by the user as a CSV file. Other data analysis functions will be used to process the raw data, generate standard curves, and fit and visualize the appropriate linear or polynomial regression lines. Curve fitting for the A280 method will be based on Beer’s Law equation (absorbance = molar absorptivity * path length * concentration OR $A = \epsilon c l$). An additional function will be used to calculate protein concentration estimates from the regression models. Final functions will be included to assist post-assay work, tracking how much protein has been used in the assay, and the remaining amounts based on user input of total starting volume. Use of this package will accelerate the protein quantification process with applications in both academic research labs and large-scale pharmaceutical development. 
+To address this challenge, this package aims to create tools that enable efficient assay data analysis and visualization. Use of this package will accelerate the protein quantification process, with applications in both academic research labs and large-scale pharmaceutical development.
 
+Functions in this package and their primary usage are listed below: 
 
-Functions in this package are listed below: 
+1. `assay_regression`: Fits a polynomial regression model for BCA and Bradford Assay standard curves with protein concentration as the response variable and absorbance as the explanatory.
 
-1. `assay_regression`
+2. `assayConc`: Calculates the concentrations of unknown samples for all three quantification methods, given a standard curve's fitted regression equation.
 
-2. `graphing_tool`
+3. `assay_graphing_tool`: Graphs the standard curve of a BCA or Bradford Assay standard curve. 
 
-3. `assayConc`
+4. `UV280_regression`: Fits a linear regression model for UV280 standard curves with absorbance as the response variable and concentration is the explanatory variable.
 
-4. `assayGraph`
+5. `UV_graphing_tool`: Graphs the standard curve of a UV280 standard curve.
 
+6. `assayAnalysis`: Wrapper function that provides complete analysis by fitting the appropriate regression model, graphing it, and calculating the concentrations of unknown samples. 
 
 Sample data sets included in the package: 
 
-1. **bca_bradford_bsa_standard_curve**
+1. `bca_bradford_bsa_standard_curve`
 
-2. **bca_bradford_standard_curve_data**
+2. `bradford_sample_data`
 
-3. **bradford_sample_data**
+3. `UV_sample_data`
 
-4. **UV_bsa_standard_curve**
+4. `standard_curve_UV280`
 
+5. `BCA_sample_data`
 
 
 ## Installation
@@ -40,24 +43,20 @@ pak::pak("racheljiang15/proteinQuant")
 
 ## Example
 
-Below is an example setup of using the `assay_regression` function to generate a regression line for the inputted data set. 
+Below is an example of using the `assayAnalysis` function to perform complete analysis of sample Bradford Assay datasets.
 
-```{r}
-# import package
+```{r setup}
 library(proteinQuant)
-
-# run function
-assay_regression(data = bca_bradford_bsa_standard_curve, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
 ```
-
-
-
-
-::: {.callout-important}
-**Below is subject to change**
-
-All core information regarding the package, including the package name, author information, GitHub link, licensing, and imported functions, will be stored in the `DESCRIPTION` file. Exported and imported functions will be kept in `NAMESPACE`. Each function will be coded in a separate `R` file, and all `R` files will be stored in the `R` folder. Since information from each step in the protein quantification process is carried to future steps, dependencies between the R files will be established. Concentrations from the dilution series function will be passed to the standard curves and regression modeling functions. Visualization functions will incorporate results from regression functions. The fitted regression models will be passed to the protein concentration function. Lastly, the protein tracking function will be able to access results from all prior functions. Manuals will be stored in the `man` folder, and tests will be stored in the `tests` folder. 
-:::
+```{r}
+assayAnalysis(assay = "Bradford",
+  stdcurve = bca_bradford_bsa_standard_curve,
+  stdconc = Concentration.ug.mL.,
+  stdabs = Bradford_Absorbance,
+  data = bradford_sample_data,
+  absorbance = Absorbance,
+  stats = TRUE)
+```
 
 
 
