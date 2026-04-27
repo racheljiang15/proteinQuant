@@ -57,7 +57,7 @@ data("UV_sample_data")
 
 This package contains functions that can calculate both a linear (for UV280 methods) and a quadratic regression (for assay results). 
 
-#### UV Method
+#### UV Method Regressions
 
 A linear regression is the most appropriate for the UV 280 method. To run `UV280_regression`, user needs to specify name of column for `concentration` and `absorbance`, as in the example run below. Argument `stats` allows the user to choose to see a more complete regression output when set to `TRUE`.
 
@@ -66,7 +66,7 @@ sample_data <- UV_bsa_standard_curve
 UV280_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance, stats = TRUE)
 ```
 
-#### Assay Results
+#### Assay Regressions
 
 Quadratic regression is the most appropriate approach to generate standard curves for both BCA and Bradford assay. To run `assay_regression`, user needs to specify name of column for `concentration` and `absorbance`, as in example run below. Argument `stats` allows the user to choose to see a more complete regression output when set to `TRUE`.
 
@@ -77,7 +77,7 @@ assay_regression(data = sample_data, concentration = Concentration.ug.mL., absor
 ```
 
 
-### Graphing
+### Graphing Functions
 
 Graphing functions `UV_graphing_tool` and `assay_graphing_tool` are included in `proteinQuant` and can be used to quickly generate standard curve graphs. User needs to specify appropriate columns for `concentration` and `absorbance`. 
 
@@ -91,12 +91,35 @@ UV_graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absor
 
 ### Calculating Concentrations
 
+`assayConc` can be used to quantify the real protein concentration after the standard curve regression was already established. User needs to specify appropriate column for `absorbance` and input the coefficients of the `regression` as a list. An example run of `assayConc` is shown below.
+
+```{r}
+sample_bradf_regression <- assay_regression(data = bca_bradford_bsa_standard_curve, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
+
+assayConc(data = bradford_sample_data, absorbance = Absorbance, regression = sample_bradf_regression)
+```
+
+### Wrapper Function
+
+The wrapper function `assayAnalysis` was set up to automatically call all the necessary functions. User needs to specify the type of `assay`, dataset used to `stdcurve`, specific columns for `stdconc` and `stdabs`, protein `data` to be quantified, and the `absorbance` of the protein samples. Setting `stats = TRUE` allows user to see more detailed statistics output.
+
+```{r}
+assayAnalysis(
+  assay = "Bradford",
+  stdcurve = bca_bradford_bsa_standard_curve,
+  stdconc = Concentration.ug.mL.,
+  stdabs = Bradford_Absorbance,
+  data = bradford_sample_data,
+  absorbance = Absorbance,
+  stats = TRUE
+)
+```
 
 
 
 ## Conclusion
 
-
+The `proteinQuant` package provides useful tools to process protein quantification data. The functions cover the 2 most common protein quantification methods, UV 280 method and the assay method (BCA or Bradford). It is designed to simplify the data analysis process for protein quantification for biochemists actively involved in protein production.
 
 
 
