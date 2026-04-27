@@ -55,12 +55,38 @@ data("UV_sample_data")
 
 ### Calculating Standard Curves
 
+This package contains functions that can calculate both a linear (for UV280 methods) and a quadratic regression (for assay results). 
+
+#### UV Method
+
+A linear regression is the most appropriate for the UV 280 method. To run `UV280_regression`, user needs to specify name of column for `concentration` and `absorbance`, as in the example run below. Argument `stats` allows the user to choose to see a more complete regression output when set to `TRUE`.
+
+```{r}
+sample_data <- UV_bsa_standard_curve
+UV280_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance, stats = TRUE)
+```
+
 #### Assay Results
+
+Quadratic regression is the most appropriate approach to generate standard curves for both BCA and Bradford assay. To run `assay_regression`, user needs to specify name of column for `concentration` and `absorbance`, as in example run below. Argument `stats` allows the user to choose to see a more complete regression output when set to `TRUE`.
+
+```{r}
+sample_data <- bca_bradford_bsa_standard_curve
+
+assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
+```
 
 
 ### Graphing
 
+Graphing functions `UV_graphing_tool` and `assay_graphing_tool` are included in `proteinQuant` and can be used to quickly generate standard curve graphs. User needs to specify appropriate columns for `concentration` and `absorbance`. 
 
+An example run of `UV_graphing_tool` is included below: 
+
+```{r}
+sample_data <- UV_bsa_standard_curve
+UV_graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance)
+```
 
 
 ### Calculating Concentrations
@@ -69,4 +95,8 @@ data("UV_sample_data")
 
 
 ## Conclusion
+
+
+
+
 
