@@ -32,7 +32,7 @@ assayConc <- function(data, absorbance, regression, printWell = TRUE) {
   }
   
   # data wrangling for list creationg
-  abs_values <- data |> pull({{ absorbance }})
+  abs_values <- data |> dplyr::pull({{ absorbance }})
   # create empty list to store calculated concentrations
   conc <- vector("numeric", length(abs_values))
   
@@ -42,7 +42,7 @@ assayConc <- function(data, absorbance, regression, printWell = TRUE) {
   }
   
   # concatenate the calculated concentration values with the original absorbance values
-  result <- data |> mutate(Concentration = conc)
+  result <- data |> dplyr::mutate(Concentration = conc)
   
   # if user chose printWell, will print in the kable format
   if (printWell == TRUE){

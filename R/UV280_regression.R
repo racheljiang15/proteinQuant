@@ -8,6 +8,7 @@
 #' @param absorbance Name of column containing absorbance values in data.
 #' @param stats True or False.
 #' @import dplyr
+#' @import rlang
 #' @examples
 #' data(UV_bsa_standard_curve)
 #' sample_data <- UV_bsa_standard_curve
@@ -35,8 +36,8 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   
   # data wrangling: added a column of average absorbance based on the absorbance column
   avg_data <- data |>
-    group_by({{ concentration }}) |>
-    reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
+    dplyr::group_by({{ concentration }}) |>
+    dplyr::reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
   
   # set up the formula to be used inside lm
   #conc <- deparse(substitute(concentration))

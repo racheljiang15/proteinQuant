@@ -5,9 +5,10 @@
 #' @export
 #' @import ggplot2
 #' @import dplyr
+#' @import rlang
 #' @param assay Name of assay performed as a string: BCA, Bradford, or UV 280
 #' @param stdcurve List containing  absorbance and concentration values obtained in creation of a standard curve.
-#' @param stdconc Name of column contianing concentration values in stdcurve.
+#' @param stdconc Name of column containing concentration values in stdcurve.
 #' @param stdabs Name of column containing absorbance.
 #' @param data Dataframe containing absorbance and concentration values.
 #' @param concentration Name of column containing concentration values in data.
@@ -89,12 +90,12 @@ assayAnalysis <- function(assay, stdcurve, stdconc, stdabs, data, concentration 
 }
 
 
-assayAnalysis(
-  assay = "Bradford",
-  stdcurve = bca_bradford_bsa_standard_curve,
-  stdconc = Concentration.ug.mL.,
-  stdabs = Bradford_Absorbance,
-  data = bradford_sample_data,
-  absorbance = Absorbance,
-  stats = TRUE
-)
+#assayAnalysis(
+  #assay = "Bradford",
+  #stdcurve = bca_bradford_bsa_standard_curve,
+  #stdconc = Concentration.ug.mL.,
+  #stdabs = Bradford_Absorbance,
+  #data = bradford_sample_data,
+  #absorbance = Absorbance,
+  #stats = TRUE
+#)

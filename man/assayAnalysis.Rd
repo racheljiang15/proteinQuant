@@ -10,18 +10,18 @@ assayAnalysis(
   stdconc,
   stdabs,
   data,
-  concentration,
+  concentration = NULL,
   absorbance,
-  stats,
-  printWell
+  stats = FALSE,
+  printWell = TRUE
 )
 }
 \arguments{
-\item{assay}{Name of assay performed: BCA, Bradford, or UV 280}
+\item{assay}{Name of assay performed as a string: BCA, Bradford, or UV 280}
 
 \item{stdcurve}{List containing  absorbance and concentration values obtained in creation of a standard curve.}
 
-\item{stdconc}{Name of column contianing concentration values in stdcurve.}
+\item{stdconc}{Name of column containing concentration values in stdcurve.}
 
 \item{stdabs}{Name of column containing absorbance.}
 
@@ -40,4 +40,8 @@ A plot showing the data points of the standard curve, the fitted polynomial regr
 }
 \description{
 A function that returns fitted standard curve regression models and calculated concentrations, given standard curve and experimental absorbance data for BCA and Bradford Assays.
+}
+\examples{
+\dontrun{
+}
 }
