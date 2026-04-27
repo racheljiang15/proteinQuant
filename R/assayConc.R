@@ -32,17 +32,17 @@ assayConc <- function(data, absorbance, regression, printWell = TRUE) {
   }
   
   # data wrangling for list creationg
-  abs_values <- data |> pull({{ absorbance }})
+  abs_values <- data |> dplyr::pull({{ absorbance }})
   # create empty list to store calculated concentrations
   conc <- vector("numeric", length(abs_values))
   
   # go through all absorbance values and calculate corresponding concentration, then store the value to the conc list
   for (i in seq_along(abs_values)){
-    conc[[i]] <- regression$intercept + regression$primary * abs_values[i] + regression$secondary * abs_values[i]^2
+    conc[[i]] <- regression$intercept + regression$primary * abs_values[i] + ifelse(is.na(regression$secondary), 0, regression$secondary * abs_values[i]^2)
   }
   
   # concatenate the calculated concentration values with the original absorbance values
-  result <- data |> mutate(Concentration = conc)
+  result <- data |> dplyr::mutate(Concentration = conc)
   
   # if user chose printWell, will print in the kable format
   if (printWell == TRUE){

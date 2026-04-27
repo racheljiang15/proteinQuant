@@ -17,3 +17,5 @@ test_that("assayConc calculates expected values", {
   
   expect_equal(result$Concentration, c(3, 5, 7))
 })
+
+#test warnings and errors here
