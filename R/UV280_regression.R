@@ -18,9 +18,14 @@
 # added argument `stats`, which is `FALSE` by default. Allows user to choose to see additional statistics by setting stats` to `TRUE`
 UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   # warning and error messages
-  if (typeof(data) != "list"){
+  #if (typeof(data) != "list"){
+    #stop("Argument `data` must be a list")
+  #}
+  if (!is.list(data)) {
     stop("Argument `data` must be a list")
   }
+  
+  data <- as.data.frame(data)
   
   if (length(data$concentration) == 1){
     warning("Should input more than 1 concentration value.")
