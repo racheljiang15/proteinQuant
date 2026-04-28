@@ -34,12 +34,7 @@ Alternatively, the user can use the ultimate function `assayAnalysis`, which cal
 
 ### Loading the Data
 
-To load in data, 
-
-
-### Working across Assays
-
-The `proteinQuant` includes bsorbance data experimentally collected from the UV 280 method or the BCA and Bradford assays. Data was collected during BCH 253 Biochemistry I lab.
+The `proteinQuant` includes absorbance data experimentally collected from the UV 280 method or the BCA and Bradford assays. Data was collected during BCH 253 Biochemistry I lab.
 
 Sample data can be loaded directly after loading the package.
 
@@ -52,6 +47,12 @@ data("bradford_sample_data")
 data("UV_bsa_standard_curve")
 data("UV_sample_data")
 ```
+
+
+### Working across Assays
+
+Sample data included in `proteinQuant` were separated based on type (UV or assay, standard curve or sample data). Most sets contain `absorbance` data while some also include concentration information. Concentrations were recorded in $\mu g/mL$. 
+
 
 ### Calculating Standard Curves
 
