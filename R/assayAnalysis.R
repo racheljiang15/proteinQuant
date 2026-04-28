@@ -90,12 +90,3 @@ assayAnalysis <- function(assay, stdcurve, stdconc, stdabs, data, concentration 
 }
 
 
-#assayAnalysis(
-  #assay = "Bradford",
-  #stdcurve = bca_bradford_bsa_standard_curve,
-  #stdconc = Concentration.ug.mL.,
-  #stdabs = Bradford_Absorbance,
-  #data = bradford_sample_data,
-  #absorbance = Absorbance,
-  #stats = TRUE
-#)
