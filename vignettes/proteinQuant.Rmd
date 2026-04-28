@@ -22,36 +22,104 @@ library(proteinQuant)
 
 ## Introduction
 
-The `proteinQuant` package provides a facile method to process and calculate assay results from **BCA assay**, **Bradford assay**, and **UV standard curve** protein quantification methods. The package features functions that allows users to quickly go through necessary calculations and obtain useful graphics when processing assay/UV-vis data. Additionally, the package features sample data sets comprised of real experimental data collected through the listed methods. Through that this package aims to assist researchers who have to quantify proteins through these methods on a regular basis. 
+The `proteinQuant` package provides a facile method to process and calculate assay results from **BCA assay**, **Bradford assay**, and **UV standard curve** protein quantification methods. The package features functions that allow users to quickly go through necessary calculations and obtain useful graphics when processing assay/UV-vis data. Additionally, the package features sample data sets comprised of real experimental data collected through the listed methods. Through that, this package aims to assist researchers who have to quantify proteins through these methods regularly. 
 
 
-### Typcal Workflow
+### Typical Workflow
 
+To begin, users can input the data for their standard curve into the appropriate standard curve function, either `assay_regression` or `UV280_regression`, to obtain a standard curve for concentration calculations. The user can then input the resulting regression equation to `AssayConc` in addition to the absorbance data for their protein sample(s) to quantify protein concentration in their samples. The regression line can also be graphed out with the corresponding standard curve graphing function, `asay_graphing_tool` or `UV_graphing_tool`. 
+
+Alternatively, the user can use the ultimate function `assayAnalysis`, which calls all the functions in one run. This function yields a shorter output but still incorporates all the 
 
 
 ### Loading the Data
 
-
+To load in data, 
 
 
 ### Working across Assays
 
+The `proteinQuant` includes bsorbance data experimentally collected from the UV 280 method or the BCA and Bradford assays. Data was collected during BCH 253 Biochemistry I lab.
 
+Sample data can be loaded directly after loading the package.
+
+```{r}
+# load individual dataset for each quantification
+data("bca_bradford_bsa_standard_curve")
+data("bca_bradford_standard_curve_data")
+data("BCA_sample_data")
+data("bradford_sample_data")
+data("UV_bsa_standard_curve")
+data("UV_sample_data")
+```
 
 ### Calculating Standard Curves
 
+This package contains functions that can calculate both a linear (for UV280 methods) and a quadratic regression (for assay results). 
+
+#### UV Method Regressions
+
+A linear regression is the most appropriate for the UV 280 method. To run `UV280_regression`, user needs to specify name of column for `concentration` and `absorbance`, as in the example run below. Argument `stats` allows the user to choose to see a more complete regression output when set to `TRUE`.
+
+```{r}
+sample_data <- UV_bsa_standard_curve
+UV280_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance, stats = TRUE)
+```
+
+#### Assay Regressions
+
+Quadratic regression is the most appropriate approach to generate standard curves for both BCA and Bradford assay. To run `assay_regression`, user needs to specify name of column for `concentration` and `absorbance`, as in example run below. Argument `stats` allows the user to choose to see a more complete regression output when set to `TRUE`.
+
+```{r}
+sample_data <- bca_bradford_bsa_standard_curve
+
+assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
+```
 
 
+### Graphing Functions
 
-### Graphing
+Graphing functions `UV_graphing_tool` and `assay_graphing_tool` are included in `proteinQuant` and can be used to quickly generate standard curve graphs. User needs to specify appropriate columns for `concentration` and `absorbance`. 
 
+An example run of `UV_graphing_tool` is included below: 
 
-
+```{r}
+sample_data <- UV_bsa_standard_curve
+UV_graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance)
+```
 
 
 ### Calculating Concentrations
 
+`assayConc` can be used to quantify the real protein concentration after the standard curve regression was already established. User needs to specify appropriate column for `absorbance` and input the coefficients of the `regression` as a list. An example run of `assayConc` is shown below.
+
+```{r}
+sample_bradf_regression <- assay_regression(data = bca_bradford_bsa_standard_curve, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
+
+assayConc(data = bradford_sample_data, absorbance = Absorbance, regression = sample_bradf_regression)
+```
+
+### Wrapper Function
+
+The wrapper function `assayAnalysis` was set up to automatically call all the necessary functions. User needs to specify the type of `assay`, dataset used to `stdcurve`, specific columns for `stdconc` and `stdabs`, protein `data` to be quantified, and the `absorbance` of the protein samples. Setting `stats = TRUE` allows user to see more detailed statistics output.
+
+```{r}
+assayAnalysis(
+  assay = "Bradford",
+  stdcurve = bca_bradford_bsa_standard_curve,
+  stdconc = Concentration.ug.mL.,
+  stdabs = Bradford_Absorbance,
+  data = bradford_sample_data,
+  absorbance = Absorbance,
+  stats = TRUE
+)
+```
 
 
 
 ## Conclusion
+
+The `proteinQuant` package provides useful tools to process protein quantification data. The functions cover the 2 most common protein quantification methods, UV 280 method and the assay method (BCA or Bradford). It is designed to simplify the data analysis process for protein quantification for biochemists actively involved in protein production.
+
+
+
