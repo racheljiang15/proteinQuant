@@ -32,7 +32,7 @@ assay_regression <- function(data, concentration, absorbance, stats = TRUE){
   }
   
   if (length(data$absorbance) == 1){
-    warning("Should input more than 1 absorbance value.")
+    stop("Should input more than 1 absorbance value.")
   }
   
   if (length(data$concentration) != length(data$absorbance)){

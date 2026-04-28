@@ -20,6 +20,7 @@
 #' 
 
 assayAnalysis <- function(assay, stdcurve, stdconc, stdabs, data, concentration = NULL, absorbance, stats = FALSE, printWell = TRUE){
+  # set input for argument assay into lower case useful for setting up if statements
   assay <- tolower(assay)
   
   #checking if assay is one of the specified ones we can analyze with our package
@@ -27,6 +28,24 @@ assayAnalysis <- function(assay, stdcurve, stdconc, stdabs, data, concentration 
     stop("assay must be one of the following: BCA, Bradford, or UV280")
   }
   
+  # check if the input dataset for the stdcurve and data arguments is in the appropriate format
+  if (typeof(stdcurve) != "list"){
+    stop("Input data for stdcurve must be a list")
+  }
+
+  if (!is.list(data)) {
+    stop("Input data for data argument must be a list.")
+  }
+  data <- as.data.frame(data)
+  
+  # check if the input data for conc and absorbance used in standard curve calculations are in appropriate lengths
+  if (length(stdcurve$stdconc)==1){
+    stop("Should input more than 1 concentration value for standard curve.")
+  }
+  if (length(stdcurve$stdabs)==1){
+    stop("Should input more than 1 absorbance value for standard curve.")
+  }
+
   #for when user selects BCA or Bradford as their assay type
   if (assay %in% c("bca", "bradford")){
     #getting regression
