@@ -24,6 +24,6 @@ A function that returns the polynomial regression equations for BCA/ Bradford st
 \examples{
 data(bca_bradford_bsa_standard_curve)
 sample_data <- bca_bradford_bsa_standard_curve
-assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance, stats = TRUE)
+assay_regression(sample_data, Concentration.ug.mL., Bradford_Absorbance)
 
 }

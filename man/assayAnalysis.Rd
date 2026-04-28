@@ -42,6 +42,12 @@ A plot showing the data points of the standard curve, the fitted polynomial regr
 A function that returns fitted standard curve regression models and calculated concentrations, given standard curve and experimental absorbance data for BCA and Bradford Assays.
 }
 \examples{
-assayAnalysis(assay = "Bradford",stdcurve = bca_bradford_bsa_standard_curve,stdconc = Concentration.ug.mL.,stdabs = Bradford_Absorbance,data = bradford_sample_data, absorbance = Absorbance, stats = TRUE)
+assayAnalysis(assay = "Bradford",
+stdcurve = bca_bradford_bsa_standard_curve,
+stdconc = Concentration.ug.mL.,
+stdabs = Bradford_Absorbance,
+data = bradford_sample_data, 
+absorbance = Absorbance, 
+stats = TRUE)
 
 }

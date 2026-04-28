@@ -22,7 +22,9 @@ A data frame with the concentrations of each sample.
 A function that returns the concentrations of unknown protein samples, based on absorbance data, as a data frame.
 }
 \examples{
-sample_bradf_regression <- assay_regression(data = bca_bradford_bsa_standard_curve, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
-assayConc(data = bradford_sample_data, absorbance = Absorbance, regression = sample_bradf_regression)
+sample_bradf_regression <- assay_regression(bca_bradford_bsa_standard_curve, 
+Concentration.ug.mL., 
+Bradford_Absorbance)
+assayConc(bradford_sample_data, Absorbance, sample_bradf_regression)
 
 }

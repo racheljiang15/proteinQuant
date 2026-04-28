@@ -11,7 +11,7 @@
 #' @examples
 #' data(bca_bradford_bsa_standard_curve)
 #' sample_data <- bca_bradford_bsa_standard_curve
-#' assay_graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
+#' assay_graphing_tool(sample_data, Concentration.ug.mL., Bradford_Absorbance)
 #'
 
 # graphing tool for graphing standard curve
