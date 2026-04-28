@@ -32,10 +32,11 @@ assayAnalysis <- function(assay, stdcurve, stdconc, stdabs, data, concentration 
   if (typeof(stdcurve) != "list"){
     stop("Input data for stdcurve must be a list")
   }
-  
-  if (typeof(data) != "list"){
-    stop("Input data for data argument must be a list")
+
+  if (!is.list(data)) {
+    stop("Input data for data argument must be a list.")
   }
+  data <- as.data.frame(data)
   
   # check if the input data for conc and absorbance used in standard curve calculations are in appropriate lengths
   if (length(stdcurve$stdconc)==1){
