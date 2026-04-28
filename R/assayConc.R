@@ -8,8 +8,10 @@
 #' @param regression List of regression modeling coefficients.
 #' @param printWell True or False.
 #' @examples
-#' sample_bradf_regression <- assay_regression(data = bca_bradford_bsa_standard_curve, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
-#' assayConc(data = bradford_sample_data, absorbance = Absorbance, regression = sample_bradf_regression)
+#' sample_bradf_regression <- assay_regression(bca_bradford_bsa_standard_curve, 
+#' Concentration.ug.mL., 
+#' Bradford_Absorbance)
+#' assayConc(bradford_sample_data, Absorbance, sample_bradf_regression)
 #'
 
 # returns a list with the calculated concentrations

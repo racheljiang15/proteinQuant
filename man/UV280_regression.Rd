@@ -24,6 +24,6 @@ A function that returns the linear regression equations for UV 280 standard curv
 \examples{
 data(UV_bsa_standard_curve)
 sample_data <- UV_bsa_standard_curve
-UV280_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance, stats = TRUE)
+UV280_regression(sample_data, Concentration.ug.mL., Absorbance, stats = TRUE)
 
 }
