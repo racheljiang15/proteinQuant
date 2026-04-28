@@ -1,0 +1,5 @@
+-	Excellent README file! It looks really polished as it is.
+-	To fix the “no visible binding” notes, you can add utils::globalVariables(c("put variable inside")) to the top of each R file that has this problem. Within the vector, you will add the variables (in character format) that are leading to the notes. I’ve added an example for one of your functions.
+-	The functionality of your wrapper function is excellent! 
+-	Most of what you all have done up to this point looks really polished! 
+-	From here on, fix up the notes and consider if there is any other functionality you want to add to this package to make it more useful for your purposes.

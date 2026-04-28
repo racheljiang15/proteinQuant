@@ -1,3 +1,5 @@
+utils::globalVariables(c("reformulate"))
+
 #' Standard Curve Linear Regression Fitting
 #'
 #' @description A function that returns the linear regression equations for UV 280 standard curves.
