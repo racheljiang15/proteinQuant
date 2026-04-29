@@ -40,18 +40,18 @@ UV_graphing_tool <- function(data, concentration, absorbance) {
   
   # data wrangling: added a column of average absorbance based on the absorbance column 
   avg_data <- data |>
-    group_by({{ concentration }}) |>
-    reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
+    dplyr::group_by({{ concentration }}) |>
+    dplyr::reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
   
   # use ggplot to generate a graph for the standard curve
-  ggplot(data = avg_data,
-         aes(x = avg_absorbance,
-             y = {{ concentration }})) +
-    geom_point() + # adds data point from the data set
-    geom_smooth(method = "lm", formula = y ~ x, se = FALSE) + # generate polynomial regression line
-    theme_bw() +
-    labs(x = "Average Absorbance",
-         y = "Concentration (ug/mL)") # change axis titles
+  ggplot2::ggplot(data = avg_data,
+                  ggplot2::aes(x = avg_absorbance,
+                               y = {{ concentration }})) +
+    ggplot2::geom_point() + # adds data point from the data set
+    ggplot2::geom_smooth(method = "lm", formula = y ~ x, se = FALSE) + # generate polynomial regression line
+    ggplot2::theme_bw() +
+    ggplot2::labs(x = "Average Absorbance",
+                  y = "Concentration (ug/mL)") # change axis titles
 }
 
 
