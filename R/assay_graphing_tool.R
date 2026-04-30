@@ -1,4 +1,6 @@
-#' Standard Curve Graphing
+utils::globalVariables(c("avg_absorbance"))
+
+#' Standard Curve Graphing for BCA and Bradford Assays
 #'
 #' @description A function that returns a graph of the polynomial regression fitting for BCA and Bradford standard curves. 
 #' @return A plot showing the data points of the standard curve, as well as the fitted polynomial regression model.
@@ -17,9 +19,6 @@
 # graphing tool for graphing standard curve
 assay_graphing_tool <- function(data, concentration, absorbance) {
   # warning and error messages
-  #if (typeof(data) != "list"){
-    #stop("Argument `data` must be a list")
-  #
   if (!is.list(data)) {
     stop("Argument `data` must be a list")
   }
@@ -53,6 +52,3 @@ assay_graphing_tool <- function(data, concentration, absorbance) {
     ggplot2::labs(x = "Average Absorbance",
          y = "Concentration (ug/mL)") # change axis titles
 }
-
-#sample_data <- bca_bradford_bsa_standard_curve
-#graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)

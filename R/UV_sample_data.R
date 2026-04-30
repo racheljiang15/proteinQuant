@@ -9,5 +9,3 @@
 #' @name UV_sample_data
 
 "UV_sample_data"
-#UV_sample_data <- read.csv("UV_sample_data.csv")
-#usethis::use_data(UV_sample_data, overwrite = TRUE)

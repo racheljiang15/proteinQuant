@@ -1,4 +1,4 @@
-#' Full Analysis of Raw BCA/ Bradford Assay Data
+#' Full Protein Quantification Analysis
 #'
 #' @description A function that returns fitted standard curve regression models and calculated concentrations, given standard curve and experimental absorbance data for BCA and Bradford Assays. 
 #' @return A plot showing the data points of the standard curve, the fitted polynomial regression model of that standard curve, and the concentrations of experimental samples.

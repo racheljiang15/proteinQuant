@@ -14,7 +14,7 @@ R. Jiang and A.Y. Cheng (2026), BCH 253-01 Smith College
 BCA_sample_data
 }
 \description{
-The data was collected in an introductory Biochemistry lab course at Smith College in the Spring 2026 semester. It includes absorbance data used in the creation of a BSA standard curve for the UV280 protein quantification method.
+The data was collected in an introductory Biochemistry lab course at Smith College in the Spring 2026 semester. It includes absorbance data used in the creation of a BSA standard curve for the BCA protein quantification assay.
 }
 \examples{
 BCA_sample_data

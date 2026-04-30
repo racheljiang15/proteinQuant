@@ -1,4 +1,6 @@
-#' Standard Curve Graphing
+utils::globalVariables(c("avg_absorbance"))
+
+#' Standard Curve Graphing for UV280
 #'
 #' @description A function that returns a graph of the linear regression fitting for UV 280 standard curve. 
 #' @return A plot showing the data points of the standard curve, as well as the fitted linear regression model.
@@ -16,10 +18,6 @@
 
 # graphing tool for graphing standard curve
 UV_graphing_tool <- function(data, concentration, absorbance) {
-  # warning and error messages
-  #if (typeof(data) != "list"){
-    #stop("Argument `data` must be a list")
-  #
   if (!is.list(data)) {
     stop("Argument `data` must be a list")
   }
@@ -40,26 +38,18 @@ UV_graphing_tool <- function(data, concentration, absorbance) {
   
   # data wrangling: added a column of average absorbance based on the absorbance column 
   avg_data <- data |>
-    group_by({{ concentration }}) |>
-    reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
+    dplyr::group_by({{ concentration }}) |>
+    dplyr::reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
   
   # use ggplot to generate a graph for the standard curve
-  ggplot(data = avg_data,
-         aes(x = avg_absorbance,
-             y = {{ concentration }})) +
-    geom_point() + # adds data point from the data set
-    geom_smooth(method = "lm", formula = y ~ x, se = FALSE) + # generate polynomial regression line
-    theme_bw() +
-    labs(x = "Average Absorbance",
-         y = "Concentration (ug/mL)") # change axis titles
+  ggplot2::ggplot(data = avg_data,
+                  ggplot2::aes(x = avg_absorbance,
+                               y = {{ concentration }})) +
+    ggplot2::geom_point() + # adds data point from the data set
+    ggplot2::geom_smooth(method = "lm", formula = y ~ x, se = FALSE) + # generate polynomial regression line
+    ggplot2::theme_bw() +
+    ggplot2::labs(x = "Average Absorbance",
+                  y = "Concentration (ug/mL)") # change axis titles
 }
-
-
-
-# sample_data <- UV_bsa_standard_curve
-# UV_graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance)
-
-
-
 
 

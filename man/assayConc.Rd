@@ -2,7 +2,7 @@
 % Please edit documentation in R/assayConc.R
 \name{assayConc}
 \alias{assayConc}
-\title{Concentrations for Unknown Protein Samples}
+\title{Concentrations Calculator}
 \usage{
 assayConc(data, absorbance, regression, printWell = TRUE)
 }

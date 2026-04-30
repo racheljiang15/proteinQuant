@@ -1,6 +1,6 @@
 #' Protein Quantification Test BCA_sample_data
 #'
-#' @description The data was collected in an introductory Biochemistry lab course at Smith College in the Spring 2026 semester. It includes absorbance data used in the creation of a BSA standard curve for the UV280 protein quantification method.
+#' @description The data was collected in an introductory Biochemistry lab course at Smith College in the Spring 2026 semester. It includes absorbance data used in the creation of a BSA standard curve for the BCA protein quantification assay.
 #' @format Data frame with concentration and absorbance values.
 #' @source R. Jiang and A.Y. Cheng (2026), BCH 253-01 Smith College
 #' @examples
@@ -9,5 +9,3 @@
 #' @name BCA_sample_data
 
 "BCA_sample_data"
-#BCA_sample_data <- read.csv("BCA_sample_data.csv")
-#usethis::use_data(BCA_sample_data, overwrite = TRUE)

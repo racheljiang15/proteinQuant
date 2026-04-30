@@ -1,4 +1,4 @@
-#' Concentrations for Unknown Protein Samples
+#' Concentrations Calculator
 #'
 #' @description A function that returns the concentrations of unknown protein samples, based on absorbance data, as a data frame.
 #' @return A data frame with the concentrations of each sample.
@@ -17,9 +17,6 @@
 # returns a list with the calculated concentrations
 assayConc <- function(data, absorbance, regression, printWell = TRUE) {
   # warning and error messages
-  #if (typeof(data) != "list"){
-    #stop("Argument `data` must be a list")
-  #}
   if (!is.list(data)) {
     stop("Argument `data` must be a list")
   }
@@ -63,16 +60,6 @@ assayConc <- function(data, absorbance, regression, printWell = TRUE) {
   }
   
 }
-
-# create sample data for testing
-#sample_data <- bca_bradford_bsa_standard_curve
-#bradford_sample <- bradford_sample_data
-
-# make regression, returned as a list
-#sample_bradf_regression <- assay_regression(data = sample_data, concentration = Concentration.ug.mL., absorbance = Bradford_Absorbance)
-
-# test function NOTE: add units
-#assayConc(data = bradford_sample, absorbance = Absorbance, regression = sample_bradf_regression)
 
 
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/assay_graphing_tool.R
 \name{assay_graphing_tool}
 \alias{assay_graphing_tool}
-\title{Standard Curve Graphing}
+\title{Standard Curve Graphing for BCA and Bradford Assays}
 \usage{
 assay_graphing_tool(data, concentration, absorbance)
 }

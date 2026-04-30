@@ -2,7 +2,7 @@
 % Please edit documentation in R/UV_graphing_tool.R
 \name{UV_graphing_tool}
 \alias{UV_graphing_tool}
-\title{Standard Curve Graphing}
+\title{Standard Curve Graphing for UV280}
 \usage{
 UV_graphing_tool(data, concentration, absorbance)
 }
