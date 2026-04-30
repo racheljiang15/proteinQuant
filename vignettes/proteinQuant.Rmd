@@ -27,7 +27,7 @@ The `proteinQuant` package provides a facile method to process and calculate ass
 
 ### Typical Workflow
 
-To begin, users can input the data for their standard curve into the appropriate standard curve function, either `assay_regression` or `UV280_regression`, to obtain a standard curve for concentration calculations. The user can then input the resulting regression equation to `AssayConc` in addition to the absorbance data for their protein sample(s) to quantify protein concentration in their samples. The regression line can also be graphed out with the corresponding standard curve graphing function, `asay_graphing_tool` or `UV_graphing_tool`. 
+To begin, users can input the data for their standard curve into the appropriate standard curve function, either `assay_regression` or `UV280_regression`, to obtain a standard curve for concentration calculations. The user can then input the resulting regression equation to `AssayConc` in addition to the absorbance data for their protein sample(s) to quantify protein concentration in their samples. The regression line can also be graphed out with the corresponding standard curve graphing function, `assay_graphing_tool` or `UV_graphing_tool`. 
 
 Alternatively, the user can use the ultimate function `assayAnalysis`, which calls all the functions in one run. This function yields a shorter output but still incorporates all the 
 
