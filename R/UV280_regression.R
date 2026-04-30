@@ -27,11 +27,11 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   data <- as.data.frame(data)
   
   if (length(data$concentration) == 1){
-    warning("Should input more than 1 concentration value.")
+    warning("Input should include more than 1 concentration value.")
   }
   
   if (length(data$absorbance) == 1){
-    warning("Should input more than 1 absorbance value.")
+    warning("Input should include more than 1 absorbance value.")
   }
   
   if (length(data$concentration) != length(data$absorbance)){
@@ -61,12 +61,12 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
     round(coeffs[2], 4), "x"
   )
   
-  # printing equation
-  cat("Equation:", equation, "\n\n")
   
   # if user selected stats = TRUE, program will enter this if statement
   if (stats == TRUE){
-    print(coeffs)
+    # print(coeffs)
+    # printing equation
+    cat("Equation:", equation, "\n\n")
   }
   
   # round coefficients for output
@@ -75,7 +75,7 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   secondary<- NA
   
   # return values as a list to be used in future calculations
-  return(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data))
+  return(invisible(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data)))
 }
 
 
