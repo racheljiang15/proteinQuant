@@ -2,7 +2,7 @@
 % Please edit documentation in R/assayAnalysis.R
 \name{assayAnalysis}
 \alias{assayAnalysis}
-\title{Full Analysis of Raw BCA/ Bradford Assay Data}
+\title{Full Protein Quantification Analysis}
 \usage{
 assayAnalysis(
   assay,

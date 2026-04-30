@@ -1,3 +1,5 @@
+utils::globalVariables(c("reformulate", "lm", "coef"))
+
 #' Standard Curve Linear Regression Fitting
 #'
 #' @description A function that returns the linear regression equations for UV 280 standard curves.
@@ -18,9 +20,6 @@
 # added argument `stats`, which is `FALSE` by default. Allows user to choose to see additional statistics by setting stats` to `TRUE`
 UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   # warning and error messages
-  #if (typeof(data) != "list"){
-    #stop("Argument `data` must be a list")
-  #}
   if (!is.list(data)) {
     stop("Argument `data` must be a list")
   }
@@ -44,12 +43,7 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
     dplyr::group_by({{ concentration }}) |>
     dplyr::reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
   
-  # set up the formula to be used inside lm
-  #conc <- deparse(substitute(concentration))
-  
-  # generate regression equation based on the data set
-  #regression <- lm(as.formula(paste("avg_absorbance ~", conc)), data = avg_data)
-  #regression <- lm(avg_absorbance ~ {{ concentration }},data = avg_data)
+  # set up the formula to be used inside lm and generate regression equation based on the data set
   conc_name <- rlang::as_name(rlang::ensym(concentration))
   
   formula <- reformulate(

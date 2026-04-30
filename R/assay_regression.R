@@ -1,3 +1,5 @@
+utils::globalVariables(c("reformulate","lm","coef"))
+
 #' Standard Curve Polynomial Regression Fitting
 #'
 #' @description A function that returns the polynomial regression equations for BCA/ Bradford standard curves.
@@ -18,9 +20,6 @@
 # added argument `stats`, which is `TRUE` by default. Allows user to choose to not print regression equation by setting stats` to `FALSE`
 assay_regression <- function(data, concentration, absorbance, stats = TRUE){
   # warning and error messages
-  #if (typeof(data) != "list"){
-    #stop("Argument `data` must be a list")
-  #}
   if (!is.list(data)) {
     stop("Argument `data` must be a list")
   }
@@ -44,14 +43,7 @@ assay_regression <- function(data, concentration, absorbance, stats = TRUE){
     dplyr::group_by({{ concentration }}) |>
     dplyr::reframe(avg_absorbance = mean({{ absorbance }})) # calculating average absorbance
   
-  # set up the formula to be used inside lm
-  #conc <- deparse(substitute(concentration))
-  #formula <- as.formula(paste(conc, "~ poly(avg_absorbance, 2)"))
-  
-  # generate regression equation based on the data set
-  #regression <- lm(formula, data = avg_data)
-  #regression <- lm({{ concentration }} ~ poly(avg_absorbance, 2), data = avg_data)
-  
+  # set up the formula to be used inside lm and generate regression equation based on the data set
   conc_name <- rlang::as_name(rlang::ensym(concentration))
   
   formula <- reformulate(

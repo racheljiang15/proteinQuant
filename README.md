@@ -10,13 +10,13 @@ Functions in this package and their primary usage are listed below:
 
 2. `assayConc`: Calculates the concentrations of unknown samples for all three quantification methods, given a standard curve's fitted regression equation.
 
-3. `assay_graphing_tool`: Graphs the standard curve of a BCA or Bradford Assay standard curve. 
+3. `assay_graphing_tool`: Graphs the fitted polynomial regression model of a BCA or Bradford Assay standard curve. 
 
-4. `UV280_regression`: Fits a linear regression model for UV280 standard curves with absorbance as the response variable and concentration is the explanatory variable.
+4. `UV280_regression`: Fits a linear regression model for UV280 standard curves with absorbance as the response variable and concentration as the explanatory variable.
 
-5. `UV_graphing_tool`: Graphs the standard curve of a UV280 standard curve.
+5. `UV_graphing_tool`: Graphs the linear regression model of a UV280 standard curve.
 
-6. `assayAnalysis`: Wrapper function that provides complete analysis by fitting the appropriate regression model, graphing it, and calculating the concentrations of unknown samples. 
+6. `assayAnalysis`: Wrapper function that provides complete analysis by fitting an appropriate regression model, graphing it, and calculating the concentrations of unknown samples. 
 
 Sample data sets included in the package: 
 

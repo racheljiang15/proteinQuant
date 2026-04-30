@@ -9,5 +9,3 @@
 #' @name standard_curve_UV280
 
 "UV_bsa_standard_curve"
-#UV_bsa_standard_curve <- read.csv("UV_bsa_standard_curve.csv")
-#usethis::use_data(UV_bsa_standard_curve, overwrite = TRUE)

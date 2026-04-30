@@ -9,5 +9,3 @@
 #' @name bradford_sample_data
 
 "bradford_sample_data"
-#bradford_sample_data <- read.csv("bradford_sample_data.csv")
-#usethis::use_data(bradford_sample_data, overwrite = TRUE)

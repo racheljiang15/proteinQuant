@@ -1,4 +1,6 @@
-#' Standard Curve Graphing
+utils::globalVariables(c("avg_absorbance"))
+
+#' Standard Curve Graphing for UV280
 #'
 #' @description A function that returns a graph of the linear regression fitting for UV 280 standard curve. 
 #' @return A plot showing the data points of the standard curve, as well as the fitted linear regression model.
@@ -16,10 +18,6 @@
 
 # graphing tool for graphing standard curve
 UV_graphing_tool <- function(data, concentration, absorbance) {
-  # warning and error messages
-  #if (typeof(data) != "list"){
-    #stop("Argument `data` must be a list")
-  #
   if (!is.list(data)) {
     stop("Argument `data` must be a list")
   }
@@ -53,13 +51,5 @@ UV_graphing_tool <- function(data, concentration, absorbance) {
     ggplot2::labs(x = "Average Absorbance",
                   y = "Concentration (ug/mL)") # change axis titles
 }
-
-
-
-# sample_data <- UV_bsa_standard_curve
-# UV_graphing_tool(data = sample_data, concentration = Concentration.ug.mL., absorbance = Absorbance)
-
-
-
 
 
