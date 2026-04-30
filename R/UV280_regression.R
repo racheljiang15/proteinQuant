@@ -67,12 +67,12 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
     round(coeffs[2], 4), "x"
   )
   
-  # printing equation
-  cat("Equation:", equation, "\n\n")
   
   # if user selected stats = TRUE, program will enter this if statement
   if (stats == TRUE){
-    print(coeffs)
+    # print(coeffs)
+    # printing equation
+    cat("Equation:", equation, "\n\n")
   }
   
   # round coefficients for output
@@ -81,7 +81,7 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   secondary<- NA
   
   # return values as a list to be used in future calculations
-  return(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data))
+  return(invisible(list(intercept = intercept, primary = primary, secondary = secondary, avg_data = avg_data)))
 }
 
 
