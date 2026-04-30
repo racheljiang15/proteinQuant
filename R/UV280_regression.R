@@ -27,11 +27,11 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
   data <- as.data.frame(data)
   
   if (length(data$concentration) == 1){
-    warning("Should input more than 1 concentration value.")
+    warning("Input should include more than 1 concentration value.")
   }
   
   if (length(data$absorbance) == 1){
-    warning("Should input more than 1 absorbance value.")
+    warning("Input should include more than 1 absorbance value.")
   }
   
   if (length(data$concentration) != length(data$absorbance)){
