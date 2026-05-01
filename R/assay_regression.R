@@ -3,7 +3,7 @@ utils::globalVariables(c("reformulate","lm","coef"))
 #' Standard Curve Polynomial Regression Fitting
 #'
 #' @description A function that returns the polynomial regression equations for BCA/ Bradford standard curves.
-#' @return Unless stats is set to FALSE, will return a regression equation with protein concentration as y and absorbance as x.
+#' @return Returns a regression equation with protein concentration as y and absorbance as x, unless stats is set to FALSE.
 #' @export
 #' @param data Dataframe containing absorbance and concentration values.
 #' @param concentration Name of column containing concentration values in data.
