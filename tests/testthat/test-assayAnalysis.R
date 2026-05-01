@@ -36,7 +36,7 @@ test_that("assayAnalysis runs BCA without error", {
   )
 })
 
-test_that("invalid assay throws error", {
+test_that("assayAnalysis will return an error when invalid assay is chosen", {
   expect_error(
     assayAnalysis(
       assay = "fake",
