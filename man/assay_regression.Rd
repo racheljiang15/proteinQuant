@@ -16,7 +16,7 @@ assay_regression(data, concentration, absorbance, stats = TRUE)
 \item{stats}{True or False.}
 }
 \value{
-Unless stats is set to FALSE, will return a regression equation with protein concentration as y and absorbance as x.
+Returns a regression equation with protein concentration as y and absorbance as x, unless stats is set to FALSE.
 }
 \description{
 A function that returns the polynomial regression equations for BCA/ Bradford standard curves.
