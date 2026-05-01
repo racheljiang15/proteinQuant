@@ -21,19 +21,18 @@ assayConc <- function(data, absorbance, regression, printWell = TRUE) {
     stop("Argument `data` must be a list")
   }
   
+  # capture input data's column name as string
+  abs_col  <- rlang::as_name(rlang::ensym(absorbance))
+  
+  if (length(data[[abs_col]]) == 1){
+    stop("Input should include more than 1 absorbance value.")
+  }
+  
+  if (!is.list(regression)){
+    stop("Please input regression as a list.")
+  }
+  
   data <- as.data.frame(data)
-  
-  if (length(data$concentration) == 1){
-    warning("Input should include more than 1 concentration value.")
-  }
-  
-  if (length(data$absorbance) == 1){
-    warning("Input should include more than 1 absorbance value.")
-  }
-  
-  if (length(data$concentration) != length(data$absorbance)){
-    stop("Each concentration must have a corresponding absorbance")
-  }
   
   # data wrangling for list creationg
   abs_values <- data |> dplyr::pull({{ absorbance }})

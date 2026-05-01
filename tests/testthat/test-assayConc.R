@@ -85,3 +85,31 @@ test_that("assayConc returns a data frame", {
   
   expect_s3_class(result, "data.frame")
 })
+
+
+test_that("assayConc returns error when only one set of concentration was entered", {
+  
+  test_data <- data.frame(
+    abs = c(0.1)
+  )
+  
+  fake_regression <- list(
+    intercept = 0,
+    primary = 1,
+    secondary = 0
+  )
+  
+  expect_error(
+    assayConc(
+      data = test_data,
+      absorbance = abs,
+      regression = fake_regression,
+      printWell = FALSE
+    ),
+    "Input should include more than 1 absorbance value"
+  )
+})
+
+
+
+

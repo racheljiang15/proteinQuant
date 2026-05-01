@@ -41,3 +41,21 @@ test_that("UV280_regression calculates the expected approximate slope", {
     
     expect_equal(result$primary, 0.185)
   })
+
+test_that("assay_regression returns error when only one set of concentration was entered", {
+  
+  test_data <- data.frame(
+    conc = 1,
+    abs = c(0.1)
+  )
+  
+  
+  expect_error(
+    UV280_regression(
+      data = test_data,
+      concentration = conc,
+      absorbance = abs
+    ),
+    "Input should include more than 1 concentration value"
+  )
+})

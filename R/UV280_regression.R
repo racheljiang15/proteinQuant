@@ -24,19 +24,24 @@ UV280_regression <- function(data, concentration, absorbance, stats = FALSE){
     stop("Argument `data` must be a list")
   }
   
-  data <- as.data.frame(data)
   
-  if (length(data$concentration) == 1){
-    warning("Input should include more than 1 concentration value.")
+  # capture input data's column name as string
+  conc_col <- rlang::as_name(rlang::ensym(concentration))
+  abs_col  <- rlang::as_name(rlang::ensym(absorbance))
+  
+  if (length(data[[conc_col]]) == 1){
+    stop("Input should include more than 1 concentration value.")
   }
   
-  if (length(data$absorbance) == 1){
-    warning("Input should include more than 1 absorbance value.")
+  if (length(data[[abs_col]]) == 1){
+    stop("Input should include more than 1 absorbance value.")
   }
   
-  if (length(data$concentration) != length(data$absorbance)){
+  if (length(data[[conc_col]]) != length(data[[abs_col]])){
     stop("Each concentration must have a corresponding absorbance")
   }
+  
+  data <- as.data.frame(data)
   
   # data wrangling: added a column of average absorbance based on the absorbance column
   avg_data <- data |>
